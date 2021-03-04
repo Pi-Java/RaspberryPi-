@@ -24,8 +24,7 @@ public class TuojiController {
     @Resource(name = "servoMotor")
     private ServoMotor servoMotor;
 
-
-   /* GpioController gpio = GpioFactory.getInstance();
+    /* GpioController gpio = GpioFactory.getInstance();
     static GpioPinPwmOutput pwm;
     static int speed = 20;
     @RequestMapping("Tuoji")
