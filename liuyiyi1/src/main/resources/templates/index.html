@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+
+<body>
+
+<div id="app">
+
+   <!-- <el-row :gutter="20">
+        <el-col :span="10">
+            <div></div>
+        </el-col>
+        <el-col :gutter="20" :span="2">
+            <el-button v-on:click="TEDOpen" type="primary" plain>开灯</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+        <el-col :gutter="20" :span="12">
+            <el-button v-on:click="TEDCL" type="primary" plain>关灯</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+    </el-row>
+    <div style="height: 30px"></div>
+    <el-row :gutter="20">
+        <el-col :span="10">
+            <div></div>
+        </el-col>
+        <el-col :gutter="20" :span="2">
+            <el-button v-on:click="djOPen" type="primary" plain>开转</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+        <el-col :gutter="20" :span="12">
+            <el-button v-on:click="djCl" type="primary" plain>停转</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+
+        <el-col :gutter="20" :span="12">
+            <el-button v-on:click="tuoji" type="primary" plain>陀机</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+    </el-row>-->
+
+    <el-row :gutter="20">
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(13,'r')" type="primary" plain>拇指伸</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(13,'l')" type="primary" plain>拇指弯</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(13,'t')" type="primary" plain>拇指复位</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+    </el-row>
+    <el-row :gutter="20">
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(16,'r')" type="primary" plain>食指伸</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(16,'l')" type="primary" plain>食指弯</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(16,'t')" type="primary" plain>食指复位</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+    </el-row>
+    <el-row :gutter="20">
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(20,'r')" type="primary" plain>中指伸</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(20,'l')" type="primary" plain>中指弯</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(20,'t')" type="primary" plain>中指复位</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+    </el-row>
+    <el-row :gutter="20">
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(21,'r')" type="primary" plain>小指伸</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(21,'l')" type="primary" plain>小指弯</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="tuoji(21,'t')" type="primary" plain>小指复位</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+    </el-row>
+    <el-row :gutter="20">
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="woquan(1)" type="primary" plain>握拳</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="woquan(2)" type="primary" plain>伸手</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+
+        <el-col :gutter="20" :span="8">
+            <el-button v-on:click="woquan(3)" type="primary" plain>鄙视</el-button>
+            <div class="grid-content bg-purple"></div>
+        </el-col>
+    </el-row>
+</div>
+
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var pp13 = 1;
+    var pp16 = 1;
+    var pp20 = 1;
+    var pp21 = 1;
+     function tuoPost(pu) {
+
+         $.ajax({
+             url: "/Tuoji/Tuoji",
+             data:{'poi':pu},
+             type: "POST",
+             dataType: "json",
+             success: function (data) {
+
+             }
+
+         })
+
+    }
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {visible: false}
+        },
+        methods: {
+            TEDOpen() {
+                $.ajax({
+                    url: "/hello/TEDOpen",
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+
+                    }
+
+                })
+            },
+            TEDCL() {
+                $.ajax({
+                    url: "/hello/TEDCL",
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+
+                    }
+
+                })
+            },
+            djOPen() {
+                $.ajax({
+                    url: "/hello/djOPen",
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+
+                    }
+
+                })
+            },
+            djCl() {
+                $.ajax({
+                    url: "/hello/djCl",
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+
+                    }
+
+                })
+            },
+
+            tuoji(pp,vv) {
+
+                if(vv=='l'){
+                    if(pp==13){
+                        pp13 = pp13+30;
+                        tuoPost("00,"+pp13)
+                    }
+                    if(pp==16){
+                        pp16 = pp16+30;
+                        tuoPost("01,"+pp16)
+                    }
+                    if(pp==20){
+                        pp20 = pp20+30;
+                        tuoPost("02,"+pp20)
+                    }
+                    if(pp==21){
+                        pp21 = pp21+30;
+                        tuoPost("03,"+pp21)
+                    }
+                }
+                if(vv=='r'){
+                    if(pp==13){
+                        pp13 = pp13-30;
+                        tuoPost("00,"+pp13)
+                    }
+                    if(pp==16){
+                        pp16 = pp16-30;
+                        tuoPost("01,"+pp16)
+                    }
+                    if(pp==20){
+                        pp20 = pp20-30;
+                        tuoPost("02,"+pp20)
+                    }
+                    if(pp==21){
+                        pp21 = pp21-30;
+                        tuoPost("03,"+pp21)
+                    }
+                }
+                if(vv=='t'){
+                    if(pp==13){
+                        pp13 = 1;
+                        tuoPost("00,1")
+                    }
+                    if(pp==16){
+                        pp16 = 1;
+                        tuoPost("01,1")
+                    }
+                    if(pp==20){
+                        pp20 = 1;
+                        tuoPost("02,1")
+                    }
+                    if(pp==21){
+                        pp21 = 1;
+                        tuoPost("03,1")
+                    }
+                }
+
+
+
+
+
+
+            },
+            woquan(ov) {
+                if(ov == 1){
+                    pp13 = 180;
+                    pp16 = 180;
+                    pp20 = 180;
+                    pp21 = 180;
+                    setTimeout(function () {
+                        tuoPost("00,"+pp13)
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("01,"+pp16)
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("02,"+pp20)
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("03,"+pp21)
+                    }, 300);
+
+
+
+                }else if(ov == 2){
+                    pp13 = 1;
+                    pp16 = 1;
+                    pp20 = 1;
+                    pp21 = 1;
+                    setTimeout(function () {
+                        tuoPost("00,"+pp13)
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("01,"+pp16)
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("02,"+pp20)
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("03,"+pp21)
+                    }, 300);
+
+
+                }else if(ov ==3 ){
+                    pp13 = 180;
+                    pp16 = 180;
+                    pp20 = 1;
+                    pp21 = 180;
+                   setTimeout(function () {
+                        tuoPost("00,"+pp13);
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("01,"+pp16)
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("02,"+pp20)
+
+                    }, 300);
+                    setTimeout(function () {
+
+                        tuoPost("03,"+pp21)
+                    }, 300);
+
+                }
+            }
+
+        }
+
+    })
+</script>
+</html>
